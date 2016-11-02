@@ -1,0 +1,11 @@
+.r0, .r1 {
+  border-bottom: solid black 4px;
+}
+.c0, .c1 {
+  border-right: solid black 4px;
+
+}
+.cell {
+  height: 250px;
+  width: 250px;
+}
