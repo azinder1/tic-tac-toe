@@ -13,31 +13,36 @@
       <div class="jumbotron">
         <h1>Tic-Tac-toe</h1>
       </div>
-      <div class="row rowZero"> <!-- ROW 0 -->
-        <div class="col-md-4 cell c0 r0"><!--0, 1 -->
+      <div class="col-md-9">
+        <div class="row rowZero"> <!-- ROW 0 -->
+          <div class="col-md-3 cell c0 r0"><!--0, 1 -->
+          </div>
+          <div class="col-md-3 cell c1 r0"><!--0, 2 -->
+          </div>
+          <div class="col-md-3 cell c2 r0"><!--0, 3 -->
+          </div>
         </div>
-        <div class="col-md-4 cell c1 r0"><!--0, 2 -->
+        <div class="row rowOne"> <!-- ROW 1 -->
+          <div class="col-md-3 cell c0 r1"><!--1, 1 -->
+          </div>
+          <div class="col-md-3 cell c1 r1"><!--1, 2 -->
+          </div>
+          <div class="col-md-3 cell c2 r1"><!--1, 3 -->
+          </div>
         </div>
-        <div class="col-md-4 cell c2 r0"><!--0, 3 -->
+        <div class="row rowTwo"> <!-- ROW 2 -->
+          <div class="col-md-3 cell c0 r2"><!--2, 1 -->
+          </div>
+          <div class="col-md-3 cell c1 r2"><!--2, 2 -->
+          </div>
+          <div class="col-md-3 cell c2 r2"><!--2, 3 -->
+          </div>
         </div>
       </div>
-      <div class="row rowOne"> <!-- ROW 1 -->
-        <div class="col-md-4 cell c0 r1"><!--1, 1 -->
-        </div>
-        <div class="col-md-4 cell c1 r1"><!--1, 2 -->
-        </div>
-        <div class="col-md-4 cell c2 r1"><!--1, 3 -->
-        </div>
+      <div class="col-md-3 outComePanel">
+        <h1 class="winner"></h1><br>
+        <button class="btn" id="refresh">replay</button>
       </div>
-      <div class="row rowTwo"> <!-- ROW 2 -->
-        <div class="col-md-4 cell c0 r2"><!--2, 1 -->
-        </div>
-        <div class="col-md-4 cell c1 r2"><!--2, 2 -->
-        </div>
-        <div class="col-md-4 cell c2 r2"><!--2, 3 -->
-        </div>
-      </div>
-
     </div>
   </body>
 </html>

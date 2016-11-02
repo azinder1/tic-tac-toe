@@ -16,7 +16,9 @@ Board.prototype.assignCoordinates = function (x,y,player) {
 }
 
 Board.prototype.rowWin = function () {
+  debugger;
   var rowZeroTotal= 0;
+  var winnerRow = "";
   for (var i = 0 ; i < 3; i++) {
     rowZeroTotal += UIboard.board [0][i];
   }
@@ -30,15 +32,17 @@ Board.prototype.rowWin = function () {
   }
   var rowTotal =[rowZeroTotal, rowOneTotal, rowTwoTotal];
   if (rowTotal.includes(3)) {
-    alert("X win!")
-    }
+    winnerRow = winnerRow.concat("X Wins!");
+  }
   else if (rowTotal.includes(12)) {
-    alert("O wins!")
-    }
-  return rowTotal;
+    winnerRow =  winnerRow.concat("O Wins!");
+  }
+  return winnerRow;
 }
 Board.prototype.colWin = function () {
+
   var colZeroTotal= 0;
+  var winnerCol = "";
   for (var i = 0 ; i < 3; i++) {
     colZeroTotal += UIboard.board [i][0];
   }
@@ -52,19 +56,19 @@ Board.prototype.colWin = function () {
   }
   var colTotal =[colZeroTotal, colOneTotal, colTwoTotal];
   if (colTotal.includes(3)) {
-    alert("X wins!")
-    }
-    else if (colTotal.includes(12)) {
-      alert("O wins!")
-      }
-  return colTotal;
+    winnerCol = winnerCol.concat("X Wins!");
+  }
+  else if (colTotal.includes(12)) {
+    winnerCol =  winnerCol.concat("O Wins!");
+  }
+  return winnerCol;
 }
 Board.prototype.diaWin = function () {
   if (UIboard.board[1][1] === 1 && ((UIboard.board[2][2] === 1 && UIboard.board[0][0] === 1) || (UIboard.board[0][2] === 1 && UIboard.board[2][0] === 1))) {
-    alert("X wins!")
+    return ("X Wins!");
   }
   else if (UIboard.board[1][1] === 4 && ((UIboard.board[2][2] === 4 && UIboard.board[0][0] === 4) || (UIboard.board[0][2] === 4 && UIboard.board[2][0] === 4))) {
-    alert("O wins!")
+    return ("O Wins!");
   }
 }
 
@@ -96,16 +100,33 @@ var coordinates = function (cell) {
   UIboard.assignCoordinates(inputx, inputy, player)
 }
 
+// var champion = function() {
+//   if (UIboard.diaWin()) {
+//     return this;
+//   }
+//   else if (UIboard.colWin()) {
+//     return this;
+//   }
+//   else if (UIboard.rowWin()) {
+//     return this;
+//   }
+// }
+
 // user interface logic
 $(document).ready(function() {
-  $('.cell').click(function(){
+  $('.cell').one("click", function(){
     counter();
     coordinates(this);
     debugger;
     $(this).text(player);
-     UIboard.diaWin();
-     UIboard.rowWin();
-     UIboard.colWin();
+    // var whosTheWinner = champion ()
+    // $('.winner').text(whosTheWinner);
+    $('.winner').append( UIboard.diaWin());
+    $('.winner').append(UIboard.colWin());
+    $('.winner').append(UIboard.rowWin());
      console.log(UIboard);
   });
+  $("#refresh").click(function() {
+    location.reload();
+  })
 });
