@@ -8,4 +8,9 @@
 .cell {
   height: 250px;
   width: 250px;
+  font-size: 160px;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 4px 4px blue;
 }
