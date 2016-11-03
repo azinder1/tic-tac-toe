@@ -3,6 +3,8 @@ function Player() {     // two properties of our object Player
   // this.turn = player;
   this.playerX = "X";
   this.playerO = "O";
+  this.totalWinsX = 0
+  this.totalWinsO = 0
 }
 var userPlayer = new Player();
 
@@ -42,9 +44,11 @@ Board.prototype.rowWin = function () { //sums row array values and determines wi
   }
   if (rowTotal.includes(3)) {
     winnerRow = winnerRow.concat("X Wins!");
+    userPlayer.totalWinsX += 1
   }
   else if (rowTotal.includes(12)) {
     winnerRow =  winnerRow.concat("O Wins!");
+    userPlayer.totalWinsO += 1
   }
   return winnerRow;
 }
@@ -59,9 +63,11 @@ Board.prototype.colWin = function () { //sums column array values and determines
   }
   if (colTotal.includes(3)) {
     winnerCol = winnerCol.concat("X Wins!");
+    userPlayer.totalWinsX += 1
   }
   else if (colTotal.includes(12)) {
     winnerCol =  winnerCol.concat("O Wins!");
+    userPlayer.totalWinsO += 1
   }
   return winnerCol;
 }
@@ -69,9 +75,11 @@ Board.prototype.colWin = function () { //sums column array values and determines
 Board.prototype.diaWin = function () { //scans array based on diagnal values to see if diagnals of 1 (X) or 4 (O) won
   if (UIboard.board[1][1] === 1 && ((UIboard.board[2][2] === 1 && UIboard.board[0][0] === 1) || (UIboard.board[0][2] === 1 && UIboard.board[2][0] === 1))) {
     return ("X Wins!");
+    userPlayer.totalWinsX += 1
   }
   else if (UIboard.board[1][1] === 4 && ((UIboard.board[2][2] === 4 && UIboard.board[0][0] === 4) || (UIboard.board[0][2] === 4 && UIboard.board[2][0] === 4))) {
     return ("O Wins!");
+    userPlayer.totalWinsO += 1
   }
 }
 
@@ -100,12 +108,16 @@ var champion = function() { //returns string based on what win-type occured
 
   if (diaWin) {
     return diaWin;
+
   }
   else if (colWin) {
     return colWin;
   }
   else if (rowWin) {
     return rowWin;
+  }
+  else if (countTotal === 0) {
+    return "It's a tie"
   }
 }
 
@@ -114,9 +126,11 @@ $(document).ready(function() {
   $('.cell').one("click", function(){
     counter();
     coordinates(this);
-
     $(this).text(player);
      var whosTheWinner = champion ()
+     if (whosTheWinner) {
+       $('.outComePanel').show()
+     }
      $('.winner').text(whosTheWinner);
   });
   $("#refresh").click(function() {

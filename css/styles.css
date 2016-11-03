@@ -1,7 +1,6 @@
 body {
   background-image:    url(../img/chalkboard.jpg);
   background-size:     cover;                      /* <------ */
-  background-repeat:   no-repeat;
   background-position: center center;
   font-family: SqueakyChalkSound;
   color:#EDEDED;
@@ -13,7 +12,7 @@ body {
 }
 
 .header h1 {
-  text-align: center;
+  padding-left: 15%;
   font-size: 70px;
   margin: 45px 0px;
 }
@@ -33,6 +32,10 @@ body {
   font-weight: bold;
 }
 
-/*.outComePanel {
+#refresh {
+  
+}
+
+.outComePanel {
   display: none;
 }
