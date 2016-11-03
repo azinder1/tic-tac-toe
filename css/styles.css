@@ -1,18 +1,36 @@
+body {
+  background-image:    url(../img/chalkboard.jpg);
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center;
+  font-family: SqueakyChalkSound;
+  color:#EDEDED;
+
+}
+@font-face {
+  font-family: 'SqueakyChalkSound';
+  src: url('SqueakyChalkSound.ttf') format('truetype')
+}
+
+.header h1 {
+  text-align: center;
+  font-size: 70px;
+  margin: 45px 0px;
+}
+
 .r0, .r1 {
-  border-bottom: solid black 4px;
+  border-bottom: solid white 4px;
 }
 .c0, .c1 {
-  border-right: solid black 4px;
+  border-right: solid white 4px;
 
 }
 .cell {
   height: 250px;
   width: 250px;
   font-size: 160px;
-  color: red;
   text-align: center;
   font-weight: bold;
-  text-shadow: 4px 4px blue;
 }
 
 /*.outComePanel {
